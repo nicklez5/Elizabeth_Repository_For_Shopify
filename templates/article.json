@@ -4,7 +4,7 @@
             "type": "template-article",
             "blocks": {
                 "title": {
-                    "type": "article-title"
+                    "type": "article_title"
                 }
             },
             "block_order": ["title"]
