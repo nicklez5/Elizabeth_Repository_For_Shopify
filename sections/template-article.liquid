@@ -44,7 +44,11 @@
     {% endfor %}
 </article>
 {% if blog.comments_enabled? %}
-    Hello World
+    <div id="comments" class="my-8">
+        {% if article.comments_count > 0 %}
+        {% else %}
+            There are no comments in the article
+        {% endif %}
 {% endif %}
 {% schema %}
 {
