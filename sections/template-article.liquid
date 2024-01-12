@@ -26,7 +26,7 @@
                     {% assign placeholder_image = 'lifestyle-2' %}
                     {{ placeholder_image | placeholder_svg_tag: " w-full h-80 md:h-96 object-cover object-center p-5" }}
                 {% endif %}
-            
+            </div>
         {% when 'article_content' %}
             <div class="">{{ article.content }}</div>
         {% else %}
