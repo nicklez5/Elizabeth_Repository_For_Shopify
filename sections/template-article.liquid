@@ -142,7 +142,7 @@
     {% if article.excerpt != blank %}
         "description": {{ article.excerpt | strip_html | json }},
     {% endif %}
-    {% if article.image  %}
+    {% if article.image %}
         "image": [
             {{ article.image | img_url: "medium" | prepend: 'https:' | json }} 
         ],
