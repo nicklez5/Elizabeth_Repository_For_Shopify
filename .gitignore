@@ -1,4 +1,4 @@
 *.yml
 node_modules
 src
-assets/application.css
+
