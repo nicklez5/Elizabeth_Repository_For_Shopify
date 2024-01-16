@@ -11,6 +11,7 @@
     "contact_form_aN4mKW": {
       "type": "contact-form",
       "settings": {
+        "title": "Contact us"
       }
     }
   },
