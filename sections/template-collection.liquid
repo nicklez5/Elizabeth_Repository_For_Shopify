@@ -16,12 +16,13 @@
                             {% endif %}
                         </a>
 
+                        <div class="flex flex-col p-4">
+                            <span class="text-sm">{{ product.vendor }}</span>
                 
-                        <span>{{ product.vendor }}</span>
+                            <a href="{{ product.url }}" class="text-gray-700 uppercase font-medium">{{ product.title }}</a>
                 
-                        <a href="{{ product.url }}">{{ product.title }}</a>
-                
-                        <p>{{ product.price | money }}</p>
+                            <p class="text-gray-500">{{ product.price | money }}</p>
+                        </div>
                     </div>
                 </div>
                 
