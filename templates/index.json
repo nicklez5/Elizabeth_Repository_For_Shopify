@@ -1,11 +1,33 @@
 {
-    "sections": {
-        "featured-collection": {
-            "type": "featured-collection",
-            "settings": {
-                "featured_collection": "all"
-            }
-        }
+  "sections": {
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "",
+        "number_of_products_to_show": 4
+      }
     },
-    "order": ["featured-collection"]
+    "featured_collection_CdQcRP": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Shoes",
+        "featured_collection": "",
+        "number_of_products_to_show": 4
+      }
+    },
+    "featured_collection_GW8Q8D": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Clothing",
+        "featured_collection": "",
+        "number_of_products_to_show": 4
+      }
+    }
+  },
+  "order": [
+    "featured-collection",
+    "featured_collection_CdQcRP",
+    "featured_collection_GW8Q8D"
+  ]
 }
