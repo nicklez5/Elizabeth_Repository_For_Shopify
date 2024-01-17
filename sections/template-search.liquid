@@ -1,4 +1,6 @@
-{% paginate search.results by 10 %}
+<div class="container mx-auto">
+    {% paginate search.results by 10 %}
+    <h1 class="text-xl my-4 text-center">Search Results</h1>
     {% for item in search.results %}
         {% case item.object_type %}
             {% when 'product' %}
@@ -6,4 +8,6 @@
             {% else %}
         {% endcase %}
     {% endfor %}
+    {% render 'pagination', pagination: paginate %}
 {% endpaginate %}
+</div>
