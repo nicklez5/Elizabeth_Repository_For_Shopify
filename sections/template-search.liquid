@@ -11,13 +11,18 @@
     </div>
     {% if search.performed %}
         {% if search.results.size > 0 %}
-            {% for item in search.results %}
-                {% case item.object_type %}
-                    {% when 'product' %}
-                        {% render 'product-card', product_product: item %}
-                    {% else %}
-                {% endcase %}
-            {% endfor %}
+            <div class="max-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {% for item in search.results %}
+                        {% case item.object_type %}
+                            {% when 'product' %}
+                                {% render 'product-card', product_product: item %}
+                            {% else %}
+                        {% endcase %}
+                    {% endfor %}
+                </div>
+            </div>
+            
         {% else %}
             <div class="text-center my-4">
                 <p>No results found for the search term: {{ search.terms }}. Try to use a different keyword</p>
