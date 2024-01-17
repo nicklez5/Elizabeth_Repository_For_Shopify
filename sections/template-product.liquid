@@ -17,9 +17,35 @@
                 {% endfor %}
             </div>
             <div class="md:hidden">
-                div.swiper.h-94
+                <div class="swiper h-94">
+                    <div class="swiper-wrapper">
+                        {% for media in product.media %}
+                            <div class="swiper-slide">
+                                <div class="h-80 overflow-hidden p-2">
+                                    {% render 'product-media', media: media %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
         </div>
         <div class="product--information"></div>
     </div>
 </div>
+<script>
+    const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        navigation: {
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next'
+        }
+    })
+</script>
