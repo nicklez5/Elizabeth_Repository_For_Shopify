@@ -132,7 +132,13 @@
             this.addEventListener("change", this.onVariantChange);
         }
         onVariantChange(){
-            console.log("I have changed the variant selector");
+            this.getSelectedOptions();
+        }
+
+        getSelectedOptions(){
+            this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
+            console.log(this.options);
+
         }
     }
     customElements.define("variant-selector", VariantSelector);
