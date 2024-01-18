@@ -49,7 +49,12 @@
                         <div class="text-gray-500 mb-4">
                             <div>
                                 <p>Address 1: {{ order.shipping_address.address1 }}</p>
-                                <p>Address 2:</p>
+                                <p>Address 2: {{ order.shipping_address.address2 }}</p>
+                                <p>Street: {{ order.shipping_address.street }}</p>
+                                <p>Province: {{ order.shipping_address.province }}</p>
+                                <p>City: {{ order.shipping_address.city }}</p>
+                                <p>ZIP: {{ order.shipping_address.zip }}</p>
+                                <p>Country {{ order.shipping_address.country }}</p>
                             </div>
                         </div>
                     </div>
