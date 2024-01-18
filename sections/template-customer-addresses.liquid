@@ -87,6 +87,7 @@
                         value="{{ form.country }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                         data-country-selector
+                        data-id="{{ form.id }}"
                     >
                         {{ all_country_option_tags }}
                     </select>
@@ -172,6 +173,15 @@
 
             allAddressSelector.forEach(select => {
                 var selectorCountry = this.getSelectedCountry(select);
+
+                if(!selectedCountry) return;
+
+                var provinces = selectedCountry.dataset.provinces;
+                var arrayOfProvince = JSON.parse(provinces);
+
+                var provinceSelector = document.querySelector(`#address_province_${select.dataset.id}`);
+                console.log(provinceSelector);
+                
             })
         }
         getSelectedCountry(select){
@@ -180,9 +190,11 @@
                 option = select.option[index];
                 if(option.value === select.getAttribute('value')) {
                     selectedOption = option;
-                    selectedOption.setAttribute('selected','selected')
+                    selectedOption.setAttribute('selected','selected');
+                    break;
                 }
             }
+            return selectedOption;
         }
     }
     const customerAddress = new CustomerAddress();
