@@ -181,13 +181,13 @@
 
                 var provinceSelector = document.querySelector(`#address_province_${select.dataset.id}`);
                 console.log(provinceSelector);
-                
+
             })
         }
         getSelectedCountry(select){
             var option, selectedOption;
             for(var index = 0; index < select.options.length; index++){
-                option = select.option[index];
+                option = select.options[index];
                 if(option.value === select.getAttribute('value')) {
                     selectedOption = option;
                     selectedOption.setAttribute('selected','selected');
