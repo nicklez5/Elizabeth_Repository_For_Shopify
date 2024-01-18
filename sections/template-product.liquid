@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
 
 {% assign selected_variant = product.selected_or_first_available_variant %}
 
@@ -212,18 +212,18 @@
     document.addEventListener('DOMContentLoaded', function() {
         try {
             const swiper = new Swiper('.swiper', {
-                direction: 'horizontal',
-        
-                pagination: {
-                    el: '.swiper-pagination'
-                },
-        
-                navigation: {
-                    prevEl: '.swiper-button-prev',
-                    nextEl: '.swiper-button-next'
+                    direction: 'horizontal',
+
+                    pagination: {
+                        el: '.swiper-pagination'
+                    },
+
+                    navigation: {
+                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-button-next'
                 }
             })
-        } catch(e){ console.log("SwiperJS is not defined"); }
+        } catch(e) { console.log("SwiperJS is not defined"); }
     })
     
 </script>

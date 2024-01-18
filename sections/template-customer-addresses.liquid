@@ -5,19 +5,20 @@
         <a href="{{ routes.account_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Back to account</a>
     </div>
 
-    <div x-show="new_address" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 bg-gray-50 overflow-y-auto z-50">
+    <div x-show="new_address" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto z-50">
         <div class="relative max-w-md mx-auto bg-white border top-20 p-4">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-lg font-medium">New address</h2>
                 <button x-on:click="new_address = false" class="text-gray-500">{% render 'icon-close' %}</button>
             </div>
+
             {% form 'customer_address', customer.new_address %}
                 <div class="mb-4">
                     <label for="address_fname_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">First name</label>
                     <input 
                         type="text" 
                         name="address[first_name]" 
-                        id="address_fname_{{ form.id }}" 
+                        id="address_fname_{{ form.id }}"
                         value="{{ form.first_name }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -28,7 +29,7 @@
                     <input 
                         type="text" 
                         name="address[last_name]" 
-                        id="address_lname_{{ form.id }}" 
+                        id="address_lname_{{ form.id }}"
                         value="{{ form.last_name }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -39,7 +40,7 @@
                     <input 
                         type="text" 
                         name="address[company]" 
-                        id="address_company_{{ form.id }}" 
+                        id="address_company_{{ form.id }}"
                         value="{{ form.company }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -50,7 +51,7 @@
                     <input 
                         type="text" 
                         name="address[address1]" 
-                        id="address_address1_{{ form.id }}" 
+                        id="address_address1_{{ form.id }}"
                         value="{{ form.address1 }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -61,7 +62,7 @@
                     <input 
                         type="text" 
                         name="address[address2]" 
-                        id="address_address2_{{ form.id }}" 
+                        id="address_address2_{{ form.id }}"
                         value="{{ form.address2 }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -72,18 +73,17 @@
                     <input 
                         type="text" 
                         name="address[city]" 
-                        id="address_city_{{ form.id }}" 
+                        id="address_city_{{ form.id }}"
                         value="{{ form.city }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
                 </div>
 
-
                 <div class="mb-4">
                     <label for="address_country_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Country</label>
                     <select 
                         name="address[country]" 
-                        id="address_country_{{ form.id }}" 
+                        id="address_country_{{ form.id }}"
                         value="{{ form.country }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                         data-country-selector
@@ -97,7 +97,7 @@
                     <label for="address_province_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Province</label>
                     <select 
                         name="address[province]" 
-                        id="address_province_{{ form.id }}" 
+                        id="address_province_{{ form.id }}"
                         value="{{ form.province }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -109,7 +109,7 @@
                     <input 
                         type="text" 
                         name="address[zip]" 
-                        id="address_zip_{{ form.id }}" 
+                        id="address_zip_{{ form.id }}"
                         value="{{ form.zip }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
@@ -120,15 +120,17 @@
                     <input 
                         type="tel" 
                         name="address[phone]" 
-                        id="address_phone_{{ form.id }}" 
+                        id="address_phone_{{ form.id }}"
                         value="{{ form.phone }}"
                         class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                     >
                 </div>
+
                 <div class="mb-4">
                     {{ form.set_as_default_checkbox }}
                     <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as default address</label>
                 </div>
+
                 <div class="flex flex-row gap-2">
                     <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2">Create address</button>
                     <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4 py-2">Cancel</button>
@@ -136,12 +138,11 @@
             {% endform %}
         </div>
     </div>
-
     <div>
         {% paginate customer.addresses by 10 %}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 p-4 md:p-12">
                 {% for address in customer.addresses %}
-                    <div x-data="{ address_{{ address.id }}: false}">
+                    <div x-data="{ address_{{ address.id }}: false }">
                         <div class="relative flex flex-col text-center border p-2">
                             {% if address == customer.default_address %}
                                 <span class="text-xs font-medium text-white bg-green-700 px-4 py-2">Default</span>
@@ -178,7 +179,7 @@
                                         <input 
                                             type="text" 
                                             name="address[first_name]" 
-                                            id="address_fname_{{ form.id }}" 
+                                            id="address_fname_{{ form.id }}"
                                             value="{{ form.first_name }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -189,7 +190,7 @@
                                         <input 
                                             type="text" 
                                             name="address[last_name]" 
-                                            id="address_lname_{{ form.id }}" 
+                                            id="address_lname_{{ form.id }}"
                                             value="{{ form.last_name }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -200,7 +201,7 @@
                                         <input 
                                             type="text" 
                                             name="address[company]" 
-                                            id="address_company_{{ form.id }}" 
+                                            id="address_company_{{ form.id }}"
                                             value="{{ form.company }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -211,7 +212,7 @@
                                         <input 
                                             type="text" 
                                             name="address[address1]" 
-                                            id="address_address1_{{ form.id }}" 
+                                            id="address_address1_{{ form.id }}"
                                             value="{{ form.address1 }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -222,7 +223,7 @@
                                         <input 
                                             type="text" 
                                             name="address[address2]" 
-                                            id="address_address2_{{ form.id }}" 
+                                            id="address_address2_{{ form.id }}"
                                             value="{{ form.address2 }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -233,18 +234,17 @@
                                         <input 
                                             type="text" 
                                             name="address[city]" 
-                                            id="address_city_{{ form.id }}" 
+                                            id="address_city_{{ form.id }}"
                                             value="{{ form.city }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
                                     </div>
                     
-                    
                                     <div class="mb-4">
                                         <label for="address_country_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Country</label>
                                         <select 
                                             name="address[country]" 
-                                            id="address_country_{{ form.id }}" 
+                                            id="address_country_{{ form.id }}"
                                             value="{{ form.country }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                             data-country-selector
@@ -258,7 +258,7 @@
                                         <label for="address_province_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Province</label>
                                         <select 
                                             name="address[province]" 
-                                            id="address_province_{{ form.id }}" 
+                                            id="address_province_{{ form.id }}"
                                             value="{{ form.province }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -270,7 +270,7 @@
                                         <input 
                                             type="text" 
                                             name="address[zip]" 
-                                            id="address_zip_{{ form.id }}" 
+                                            id="address_zip_{{ form.id }}"
                                             value="{{ form.zip }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -281,7 +281,7 @@
                                         <input 
                                             type="tel" 
                                             name="address[phone]" 
-                                            id="address_phone_{{ form.id }}" 
+                                            id="address_phone_{{ form.id }}"
                                             value="{{ form.phone }}"
                                             class="w-full text-gray-700 border px-4 py-3 focus:outline-none"
                                         >
@@ -289,9 +289,9 @@
 
                                     <div class="mb-4">
                                         {{ form.set_as_default_checkbox }}
-                                        <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as default</label>
+                                        <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as default address</label>
                                     </div>
-
+                    
                                     <div class="flex flex-row gap-2">
                                         <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2">Edit address</button>
                                         <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4 py-2">Cancel</button>
@@ -308,33 +308,35 @@
 </div>
 
 <script>
-    class CustomerAddress{
-        constructor(){
+    class CustomerAddress {
+        constructor() {
             this.initCustomerAddress();
             this.customerAddressesSelector();
             this.initDeleteAddressButtons();
         }
 
-        initDeleteAddressButtons(){
+        initDeleteAddressButtons() {
             const deleteButtons = document.querySelectorAll("button[data-delete-address]");
             if(deleteButtons.length < 1) return;
+
             deleteButtons.forEach(button => {
                 button.addEventListener("click", function(e) {
                     var url = this.dataset.url;
 
                     var confirmation = window.confirm("Do you really wish to delete this address?");
-                    if(confirmation){
+
+                    if(confirmation) {
                         document.querySelector(`form[action="${url}"]`).submit();
                     }
-                    
                 })
             })
-            
         }
-        initCustomerAddress(){
+
+        initCustomerAddress() {
             const allAddressesSelector = document.querySelectorAll("select[data-country-selector]");
             if(allAddressesSelector.length < 1) return;
-            //console.log(allAddressesSelector)
+
+            //console.log(allAddressesSelector);
 
             allAddressesSelector.forEach(select => {
                 var selectedCountry = this.getSelectedCountry(select);
@@ -345,65 +347,70 @@
                 var arrayOfProvince = JSON.parse(provinces);
 
                 var provinceSelector = document.querySelector(`#address_province_${select.dataset.id}`);
-                
-                if(arrayOfProvince.length < 1){
-                    provinceSelector.setAttribute('disabled','disabled');
+
+                if(arrayOfProvince.length < 1) {
+                    provinceSelector.setAttribute('disabled', 'disabled');
                 } else {
                     provinceSelector.removeAttribute('disabled');
                 }
 
                 provinceSelector.innerHTML = '';
                 var options = '';
-                for(var index = 0; index < arrayOfProvince.length; index++){
-                    if(arrayOfProvince[index][0] === provinceSelector.getAttribute('value')){
+                for(var index = 0; index < arrayOfProvince.length; index++) {
+                    if(arrayOfProvince[index][0] === provinceSelector.getAttribute('value')) {
                         options += `<option value="${arrayOfProvince[index][0]}" selected>${arrayOfProvince[index][0]}</option>`;
-                    }else{
+                    } else {
                         options += `<option value="${arrayOfProvince[index][0]}">${arrayOfProvince[index][0]}</option>`;
                     }
                 }
 
                 provinceSelector.innerHTML = options;
-
             })
         }
-        getSelectedCountry(select){
+
+        getSelectedCountry(select) {
             var option, selectedOption;
-            for(var index = 0; index < select.options.length; index++){
+            for(var index = 0; index < select.options.length; index++) {
                 option = select.options[index];
+
                 if(option.value === select.getAttribute('value')) {
                     selectedOption = option;
-                    selectedOption.setAttribute('selected','selected');
+                    selectedOption.setAttribute('selected', 'selected');
                     break;
                 }
             }
+
             return selectedOption;
         }
-
-        customerAddressesSelector(){
+    
+        customerAddressesSelector() {
             const addressesSelector = document.querySelectorAll("select[data-country-selector]");
             if(addressesSelector.length < 1) return;
+
             addressesSelector.forEach(select => {
-                select.addEventListener('change', function(e){
+                select.addEventListener('change', function(e) {
                     var provinces = this.options[this.selectedIndex].dataset.provinces;
                     var arrayOfProvince = JSON.parse(provinces);
 
-                    var provinceSelector = document.querySelector(`#address_province_${this.dataset.id}`)
-                    if(arrayOfProvince.length < 1){
-                        provinceSelector.setAttribute('disabled','disabled');
-                    }else{
+                    var provinceSelector = document.querySelector(`#address_province_${this.dataset.id}`);
+
+                    if(arrayOfProvince.length < 1) {
+                        provinceSelector.setAttribute('disabled', 'disabled');
+                    } else {
                         provinceSelector.removeAttribute('disabled');
                     }
 
                     provinceSelector.innerHTML = '';
                     var options = '';
-                    for(var index = 0; index < arrayOfProvince.length; index++){
+                    for(var index = 0; index < arrayOfProvince.length; index++ ) {
                         options += `<option value="${arrayOfProvince[index][0]}">${arrayOfProvince[index][0]}</option>`;
                     }
 
                     provinceSelector.innerHTML = options;
-                })
-            })
+                });
+            });
         }
     }
+
     const customerAddress = new CustomerAddress();
 </script>
