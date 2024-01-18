@@ -165,6 +165,7 @@
     class CustomerAddress{
         constructor(){
             this.initCustomerAddress();
+            this.customerAddressesSelector();
         }
         initCustomerAddress(){
             const allAddressesSelector = document.querySelectorAll("select[data-country-selector]");
@@ -212,6 +213,16 @@
                 }
             }
             return selectedOption;
+        }
+
+        customerAddressesSelector(){
+            const addressesSelector = document.querySelectorAll("select[data-country-selector]");
+            if(addressesSelector.length < 1) return;
+            addressesSelector.forEach(select => {
+                select.addEventListener('change', function(e){
+                    console.log("Hello Again");
+                })
+            })
         }
     }
     const customerAddress = new CustomerAddress();
