@@ -169,6 +169,16 @@
             const allAddressesSelector = document.querySelectorAll("select[data-country-selector]");
             if(allAddressesSelector.length < 1) return;
             console.log(allAddressesSelector)
+
+            allAddressSelector.forEach(select => {
+                var selectorCountry = this.getSelectedCountry(select);
+            })
+        }
+        getSelectedCountry(select){
+            var option;
+            for(var index = 0; index < select.options.length; index++){
+                option = select.option[index];
+            }
         }
     }
     const customerAddress = new CustomerAddress();
