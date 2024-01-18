@@ -47,7 +47,10 @@
                     <div>
                         <h1 class="font-medium mb-4">Delivery address</h1>
                         <div class="text-gray-500 mb-4">
-                            {{ order.shipping_address | format_address }}
+                            <div>
+                                <p>Address 1: {{ order.shipping_addres }}</p>
+                                <p>Address 2:</p>
+                            </div>
                         </div>
                     </div>
                 </div>
