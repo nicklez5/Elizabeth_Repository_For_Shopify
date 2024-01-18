@@ -161,7 +161,7 @@
                             </div>
 
                             <form method="post" action="{{ address.url }}">
-
+                                <input type="hidden" name="_method" value="delete">
                             </form>
                         </div>
 
@@ -321,7 +321,7 @@
             deleteButtons.forEach(button => {
                 button.addEventListener("click", function(e) {
                     var url = this.dataset.url;
-                    console.log(document.querySelector(`form[action="${url}"]`))
+                    document.querySelector(`form[action="${url}"]`).submit();
                 })
             })
             
