@@ -171,7 +171,7 @@
             if(allAddressesSelector.length < 1) return;
             //console.log(allAddressesSelector)
 
-            allAddressSelector.forEach(select => {
+            allAddressesSelector.forEach(select => {
                 var selectorCountry = this.getSelectedCountry(select);
 
                 if(!selectedCountry) return;
@@ -180,7 +180,10 @@
                 var arrayOfProvince = JSON.parse(provinces);
 
                 var provinceSelector = document.querySelector(`#address_province_${select.dataset.id}`);
-                console.log(provinceSelector);
+                
+                if(arrayOfProvince.length < 1){
+                    
+                }
 
             })
         }
