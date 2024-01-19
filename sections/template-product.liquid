@@ -2,6 +2,7 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
 
 {% assign selected_variant = product.selected_or_first_available_variant %}
+<script src="{{ 'product-model.js' | asset_url }}" defer></script>
 
 <style>
     .swiper-button-prev, .swiper-button-next { color: black; top: auto !important; height: 20px; }
