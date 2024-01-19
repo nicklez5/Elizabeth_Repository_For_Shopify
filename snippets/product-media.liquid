@@ -22,6 +22,9 @@
                     >
                 </button>
             </div>
+            <template>
+                {{ media | model_viewer_tag: reveal: 'interaction' }}
+            </template>
         </product-model>
 
     {% else %}
