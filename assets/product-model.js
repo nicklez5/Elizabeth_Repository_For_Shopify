@@ -23,7 +23,7 @@ class ProductModel extends HTMLElement {
         openModalButton.addEventListener('click', function(e) {
             modal.querySelector("#body").innerHTML = "";
             const template = document.querySelector(`product-model[data-media-id="${mediaID}"] > template`);
-            const clone = template.textContent.cloneNode(true);
+            const clone = template.content.cloneNode(true);
             console.log(clone);
         });
     }
