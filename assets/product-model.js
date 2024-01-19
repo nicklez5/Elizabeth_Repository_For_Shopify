@@ -10,12 +10,16 @@ class ProductModel extends HTMLElement {
             [
                 {
                     name: 'model-viewer-ui',
-                    version: '1.0'
+                    version: '1.0',
+                    onLoad: this.setupModelViewerUI
                 }
             ]
         )
     }
-
+    setupModelViewerUI(errors){
+        if(errors) return;
+        this.modelViewerUI = new Shopify.ModelViewerUI(document.querySelector('model-viewer'))
+    }
     getMediaID(){
         const id = this.getAttribute('data-media-id');
         return id;
